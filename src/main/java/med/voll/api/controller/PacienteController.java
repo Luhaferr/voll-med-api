@@ -38,10 +38,28 @@ public class PacienteController {
         return ResponseEntity.ok(page);
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<DadosDetalhamentoPaciente> detalhar(@PathVariable Long id) {
         Paciente paciente = repository.getReferenceById(id);
 
         return ResponseEntity.ok(new DadosDetalhamentoPaciente(paciente));
+    }
+
+    @PutMapping
+    @Transactional
+    public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizarPaciente dados) {
+        Paciente paciente = repository.getReferenceById(dados.id());
+        paciente.atualizarInformacoes(dados);
+
+        return ResponseEntity.ok(new DadosDetalhamentoPaciente(paciente));
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity deletar(@PathVariable Long id) {
+        Paciente paciente = repository.getReferenceById(id);
+        paciente.excluir();
+
+        return ResponseEntity.noContent().build();
     }
 }
