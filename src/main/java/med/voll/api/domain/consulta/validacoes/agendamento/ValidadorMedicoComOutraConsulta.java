@@ -1,4 +1,4 @@
-package med.voll.api.domain.consulta.validacoes;
+package med.voll.api.domain.consulta.validacoes.agendamento;
 
 import med.voll.api.domain.ValidacaoException;
 import med.voll.api.domain.consulta.ConsultaRepository;
@@ -13,7 +13,7 @@ public class ValidadorMedicoComOutraConsulta implements ValidadorAgendamentoCons
     private ConsultaRepository repository;
 
     public void validar(DadosAgendamentoConsulta dados) {
-        var medicoPossuiOutraConsultaNoHorario = repository.existsByMedicoIdAndData(dados.idMedico(), dados.data());
+        var medicoPossuiOutraConsultaNoHorario = repository.existsByMedicoIdAndDataAndMotivoCancelamentoIsNull(dados.idMedico(), dados.data());
         if (medicoPossuiOutraConsultaNoHorario) {
             throw new ValidacaoException("Médico já posui outra consulta agendada nesse mesmo horário");
         }
