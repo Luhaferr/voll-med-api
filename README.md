@@ -1,13 +1,13 @@
 # 💻 Sobre o projeto
 Voll.med é uma clínica médica fictícia que precisa de um aplicativo para gestão de consultas. O aplicativo possui funcionalidades que permitam o cadastro de médicos e de pacientes, e também o agendamento e cancelamento de consultas.
 
-Farei o desenvolvimento da API Rest desse projeto.
+Este é o desenvolvimento da API Rest desse projeto.
 
 # ⚙️ Funcionalidades
 - CRUD de médicos;
 - CRUD de pacientes;
-- Agendamento de consultas(em breve);
-- Cancelamento de consultas(em breve);
+- Agendamento de consultas;
+- Cancelamento de consultas;
 
 # 🛠 Tecnologias
 As seguintes tecnologias foram utilizadas no desenvolvimento da API Rest do projeto:
